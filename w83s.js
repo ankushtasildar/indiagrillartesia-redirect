@@ -1,0 +1,4 @@
+/* W83S-001 w83s.js (IGE site): the parties, gift card and gift design pages did not load the site's own "Larger text" switch (W40S). This file loads it (same button, same saved choice on this device) and, while it is on, keeps headings bigger than the text under them (h1 > h2 > h3 > text). Words unchanged; nothing is sent anywhere. */
+(function(){if(window.__w83s)return;window.__w83s=1;
+var s=document.createElement("style");s.id="w83s-lg";s.textContent="html.w40lg main h2{font-size:var(--fs-xl,24px)!important;line-height:1.25}html.w40lg main h3{font-size:22px!important;line-height:1.3}html.w40lg main h1,html.w40lg main h2,html.w40lg main h3{text-wrap:balance}html.w40lg main p,html.w40lg main li{text-wrap:pretty}";document.head.appendChild(s);
+if(!window.__w40s){var j=document.createElement("script");j.src="/w40s.js";document.head.appendChild(j)}})();
