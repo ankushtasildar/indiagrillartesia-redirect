@@ -1,2 +1,3 @@
 # indiagrillartesia-redirect
-Redirect for indiagrillartesia.com -> indiagrillexpress.sites.tab.bot
+
+Redirects indiagrillartesia.com to https://indiagrillexpress.sites.tab.bot (GitHub Pages).
