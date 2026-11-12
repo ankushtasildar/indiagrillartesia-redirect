@@ -1,7 +1,7 @@
 /* W33S w33s.js (IGE site). Uses ONLY what this device already saved (localStorage "ige-freeof-v1" free-of list, "ige-mylist-v1" My list; nothing is sent anywhere) and each dish's own estimated allergens already on the page. All allergen info is estimated from each recipe.
 W33S-001 Per-dish marks on section pages, Popular, diet guides and dish-page lists: "Fits your list (est.)", "Has dairy (est.)" or "Can't check: not confirmed".
 W33S-002 Section pages (/menu/s/*): "N of M dishes here fit your free-of list (est.)" under the title.
-W33S-003 My list (/menu/): "Print what fits (est.)" prints only the saved dishes that fit the free-of list, with the call-first note.
+W33S-003 retired (Nov 2026).
 W33S-004 Privacy page: "Download a copy" of what this website saved on this device (a file made in the browser; nothing is sent). */
 (function(){if(window.__w33s)return;window.__w33s=1;var K="ige-freeof-v1",KM="ige-mylist-v1",N={dairy:"dairy",gluten:"gluten","tree-nuts":"tree nuts",peanuts:"peanuts",egg:"egg",soy:"soy",fish:"fish",shellfish:"shellfish"},
 CALL="Estimated from each recipe, not lab-tested; shared equipment. Call (562) 991-4320 first if you have an allergy.",P=location.pathname,$=function(i){return document.getElementById(i)};
@@ -26,15 +26,7 @@ function sect(){if(!/^\/menu\/s\/[a-z0-9-]+\/?$/.test(P))return;var h1=document.
  p.appendChild(mk("strong",null,f+" of "+rs.length+" "+h1.textContent.trim()+" dishes fit your free-of list ("+names(a)+") by estimate"));p.appendChild(document.createTextNode((u?"; "+u+" "+(u===1?"is":"are")+" not confirmed":"")+". "));
  var c=mk("a",null,"Change list");c.href="/menu/allergens/free-of/";p.appendChild(c);p.appendChild(document.createTextNode(". "+CALL))}
 /* W33S-003 */
-function prt(){var ul=$("mlItems");if(!ul||!window.print)return;var sec=$("mylist"),act=sec&&sec.querySelector(".mlact");if(!act)return;var a=get(),lis=[].slice.call(ul.children),okl=lis.filter(function(li){return li.querySelector(".w31s-ok")}),b=$("w33sPrint");
- if(!b){b=mk("button","btn alt w33s-pbtn","Print what fits (est.)");b.type="button";b.id="w33sPrint";act.appendChild(b);var hd=mk("p","pronly small w33s-phd");hd.id="w33sPhd";sec.insertBefore(hd,ul);
-  b.addEventListener("click",function(){var a2=get(),ls=[].slice.call(ul.children),n=0;ls.forEach(function(li){if(!li.querySelector(".w31s-ok")){li.setAttribute("data-w33s-ph","1")}else n++});
-   $("w33sPhd").textContent="My list: "+n+" saved "+(n===1?"dish fits":"dishes fit")+" your free-of list ("+names(a2)+") by estimate. Printed "+new Date().toLocaleDateString()+" from indiagrillexpress.sites.tab.bot. "+CALL;
-   for(var e=sec;e&&e!==document.body;e=e.parentNode){[].forEach.call(e.parentNode.children,function(x){if(x!==e&&x.tagName!=="SCRIPT")x.setAttribute("data-w33s-pa","1")})}
-   document.body.classList.add("w33s-pml");window.print();setTimeout(done,600)})}
- b.hidden=!(a.length&&okl.length&&!sec.hidden)}
-function done(){document.body.classList.remove("w33s-pml");[].forEach.call(document.querySelectorAll("[data-w33s-ph],[data-w33s-pa]"),function(x){x.removeAttribute("data-w33s-ph");x.removeAttribute("data-w33s-pa")})}
-window.addEventListener("afterprint",done);
+function prt(){}
 /* W33S-004 */
 function raw(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}}
 function dl(){var host=$("w32sDev");if(!host||!host.firstChild||$("w33sDl"))return;var p=mk("p","w33s-dl"),b=mk("button","btn ghost w33s-dlb","Download a copy");b.type="button";b.id="w33sDl";var s=mk("span","small muted w33s-dls");s.setAttribute("role","status");

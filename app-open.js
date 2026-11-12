@@ -48,7 +48,7 @@
       if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text + '\n' + url).then(function () { say('Party details copied. Paste them into your group chat.'); }, function () { say('Couldn\u2019t copy here. ' + url); }); return; }
       say(url);
     });
-    var sty = document.createElement('style'); sty.textContent = '@media print{.w69pp{display:none!important}}';
+    var sty = document.createElement('style'); sty.textContent = '';
     document.head.appendChild(sty);
     w.appendChild(b); w.appendChild(st); ul.parentNode.insertBefore(w, ul.nextSibling);
   } catch (e) {}

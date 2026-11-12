@@ -12,7 +12,7 @@ st.textContent=".w41app{margin:4px 0 12px}.w41app .btn{min-height:44px;display:i
  [S+"p",S+"li",S+"dd",S+"dt",S+"td",S+"th",S+"summary",S+"label"].join(",")+"{font-size:var(--fs-lg,20px)!important;line-height:1.6}"+
  S+".tag{font-size:var(--fs-md,16px)!important}"+S+"h3{font-size:var(--fs-h3,21px)!important}"+S+".btn{font-size:var(--fs-md,17px)!important}"+
  ".w41rv h2{margin:0 0 4px;font-size:var(--fs-md,17px)}.w41rvl a{display:inline-flex;align-items:center;min-height:44px;margin-right:16px}.w41rv .btn{min-height:44px}"+
- "@media print{.w41app,.w41rv{display:none!important}}";
+ "";
 d.head.appendChild(st);
 /* W41S-001 */
 var phone=!!(window.matchMedia&&matchMedia("(pointer: coarse)").matches);

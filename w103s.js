@@ -7,7 +7,7 @@
 (function(w,d){
 if(!d||w.W103S)return;w.W103S=1;
 var NM={"Appetizers": "appetizers", "Biryani & Rice": "biryani-rice", "Breads": "breads", "Chaat, Rolls & Momos": "street-food", "Chicken": "chicken", "Combos & Plates": "combos", "Desserts & Sweets": "desserts", "Drinks": "drinks", "Grocery": "grocery", "Indo-Chinese": "indo-chinese", "Lamb & Goat": "lamb-goat", "Seafood": "seafood", "Sides & Extras": "sides", "South Indian": "south-indian", "Tandoor & Grill": "tandoor-grill", "Vegetarian": "vegetarian"};
-var s=d.createElement('style');s.textContent='/* W103S-002 */a.w103s-sec{padding:.55em 0;text-decoration:underline;text-underline-offset:2px}@media print{p.w103s-out{display:none!important}}';d.head.appendChild(s);
+var s=d.createElement('style');s.textContent='/* W103S-002 */a.w103s-sec{padding:.55em 0;text-decoration:underline;text-underline-offset:2px}';d.head.appendChild(s);
 var KS=Object.keys(NM).sort(function(a,b){return b.length-a.length});
 function piece(f,seg){var i=0,last=0;
  function plain(e){if(e>last)f.appendChild(d.createTextNode(seg.slice(last,e)))}

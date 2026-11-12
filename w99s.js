@@ -1,6 +1,6 @@
 /* W99S w99s.js (IGE site). On-device only: nothing is sent anywhere, nothing stored. No money amounts, no menu facts added.
  W99S-002 /menu/allergens/free-of/: when the built list has 2+ sections, a 44 px 'Back to sections' link after each section that jumps to the existing
- W39S 'Jump to a menu section' chip row (#w39sJump); rebuilt on every change, gone with 0-1 sections; hidden in print.
+ W39S 'Jump to a menu section' chip row (#w39sJump); rebuilt on every change, gone with 0-1 sections.
  W99S-003 Escape closes an open page QR panel (dish pages #w42q, section/diet/free-of guides #w43q) through its own button, focus back to it, polite 'QR code closed.'.
  /menu/ is W98S-002's; left alone after another handler used Escape or while a dialog is open. */
 (function(w,d){
@@ -10,7 +10,7 @@ function css(t){var s=d.createElement('style');s.textContent=t;d.head.appendChil
 function status(){var s=d.getElementById('w99sSt');if(!s){s=d.createElement('p');s.id='w99sSt';s.className='vh';s.setAttribute('role','status');s.setAttribute('aria-live','polite');(d.querySelector('main')||d.body).appendChild(s)}return s}
 function builder(){
  var out=d.getElementById('foOut');if(!out||out.getAttribute('data-w99s'))return;out.setAttribute('data-w99s','1');
- css('/* W99S-002 */#w39sJump{scroll-margin-top:8px}.w99s-back{margin:.4rem 0 1.4rem}.w99s-back a{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;padding:0 .25rem;font-weight:600}@media print{.w99s-back{display:none}}');
+ css('/* W99S-002 */#w39sJump{scroll-margin-top:8px}.w99s-back{margin:.4rem 0 1.4rem}.w99s-back a{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;padding:0 .25rem;font-weight:600}');
  var busy=false;
  function paint(){if(busy)return;busy=true;try{
   var old=out.querySelectorAll('.w99s-back');for(var i=0;i<old.length;i++)old[i].parentNode.removeChild(old[i]);

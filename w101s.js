@@ -2,7 +2,7 @@
  W101S-001 'Back to sections' lands on the section you came from: the chip of the section just above the tapped Back link (W98S/W99S/W100S) keeps
  aria-current="location" with the W100S filled look and the sideways chip row slides it into view; the hold ends once you scroll about a third of a
  screen away, then W100S-001's tracking takes over again. /menu/ is W97S-002's: left alone.
- W101S-002 single-allergen free-of guides: the 'Printable free-of lists' chip of this page gets aria-current="page", an outlined bold look, and is slid
+ W101S-002 single-allergen free-of guides: the 'Free-of lists' chip of this page gets aria-current="page", an outlined bold look, and is slid
  into view on load. */
 (function(w,d){
 if(!d||w.W101S)return;w.W101S=1;

@@ -1,5 +1,5 @@
-/* W26S-002 + W27S: "Leave out (estimated)" on section pages, diet guides and dish-page link lists; W27S-004 "Print this list" prints what is shown. Hides dishes whose own estimated allergens include a ticked item; dishes with no allergen data hide too. */
-(function(){var pb=document.getElementById("w27print"),ps=document.getElementById("w27pstat");if(pb&&window.print){pb.hidden=false;pb.addEventListener("click",function(){window.print();});}
+/* W26S-002 + W27S: "Leave out (estimated)" on section pages, diet guides and dish-page link lists; Hides dishes whose own estimated allergens include a ticked item; dishes with no allergen data hide too. */
+(function(){var ps=document.getElementById("w27pstat");
 var box=document.getElementById("leaveOut");if(!box)return;var rows=[].slice.call(document.querySelectorAll("li.dish"));if(!rows.length)return;box.hidden=false;
 var st=document.getElementById("loStatus"),cbs=[].slice.call(box.querySelectorAll("input[type=checkbox]"));
 function run(){var on=cbs.filter(function(c){return c.checked;}).map(function(c){return c.value;}),shown=0;

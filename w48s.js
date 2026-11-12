@@ -14,7 +14,7 @@ var seen={},counts={};
 [].forEach.call(main.querySelectorAll("ul.dishes li, li.dish"),function(li){var a=li.querySelector('a[href^="/menu/d/"]');var id=li.getAttribute("data-id")||(a&&a.getAttribute("href"))||"";if(!id||seen[id])return;seen[id]=1;
  var cl={};[].forEach.call(li.querySelectorAll(".tag"),function(t){var k=W48S.cls(t.className);if(k&&!cl[k]){cl[k]=1;counts[k]=(counts[k]||0)+1}})});
 var rows=W48S.rows(counts);if(!rows.length)return;
-var css=el("style");css.id="w48s-css";css.textContent=".w48s-key{margin:.3rem 0 .8rem;font-size:var(--fs-sm,14px)}.w48s-key summary{min-height:44px;line-height:44px;display:list-item;cursor:pointer}.w48s-key ul{margin:.2rem 0 .4rem;padding-left:1.1rem}.w48s-key li{margin:.25rem 0}.w48s-key .tag{margin-right:.35rem}@media print{.w48s-key{display:none!important}}";d.head.appendChild(css);
+var css=el("style");css.id="w48s-css";css.textContent=".w48s-key{margin:.3rem 0 .8rem;font-size:var(--fs-sm,14px)}.w48s-key summary{min-height:44px;line-height:44px;display:list-item;cursor:pointer}.w48s-key ul{margin:.2rem 0 .4rem;padding-left:1.1rem}.w48s-key li{margin:.25rem 0}.w48s-key .tag{margin-right:.35rem}";d.head.appendChild(css);
 var dt=el("details","w48s-key"),ul=el("ul");dt.appendChild(el("summary",null,"What the dish tags mean"));
 rows.forEach(function(r){var li=el("li");li.appendChild(el("span","tag "+r.cls,r.tag));li.appendChild(d.createTextNode(r.means+" "+r.n+(r.n===1?" dish":" dishes")+" on this page."));ul.appendChild(li)});
 dt.appendChild(ul);dt.appendChild(el("p","small muted","Allergens and calories are estimates from each recipe, not lab-tested, and our kitchen shares equipment."));

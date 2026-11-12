@@ -1,6 +1,6 @@
 /* W34S w34s.js (IGE site). Uses ONLY what this device already saved (localStorage "ige-freeof-v1" free-of list, "ige-mylist-v1" My list; nothing is sent anywhere) and each dish's own estimated allergens already on the page. All allergen info is estimated from each recipe.
 W34S-001 /menu/: each section chip shows "N fit" (est.) for your saved free-of list, from the dishes already on the page.
-W34S-002 Section pages, Popular and diet guides: "Print what fits (est.)" prints only the dishes that fit, with the date and the call-first note.
+W34S-002 retired (Nov 2026).
 W34S-003 Section pages, Popular and diet guides: "Fits first (est.)" reorders the list on screen (fits, then not confirmed, then has an allergen); tap again for menu order.
 W34S-004 Privacy page: "Restore from a copy" reads a "Download a copy" file in this browser and puts the lists back on this device (checked against the menu; nothing is sent). */
 (function(){if(window.__w34s)return;window.__w34s=1;var K="ige-freeof-v1",KM="ige-mylist-v1",N={dairy:"dairy",gluten:"gluten","tree-nuts":"tree nuts",peanuts:"peanuts",egg:"egg",soy:"soy",fish:"fish",shellfish:"shellfish"},
@@ -23,19 +23,12 @@ var LIST=/^\/menu\/(s\/[a-z0-9-]+|popular|vegetarian|vegan|gluten-free|high-prot
 function rows(){return [].slice.call(document.querySelectorAll("main li.dish")).filter(function(li){return !li.closest("#mlItems,#hhPicksList,#mlsItems")})}
 function bar(){if(!LIST)return null;var b=$("w34sBar");if(b)return b;var rs=rows();if(!rs.length)return null;var h1=document.querySelector("main h1");if(!h1)return null;
  var anchor=document.querySelector("main .w27pr")||h1;b=mk("p","w34s-bar");b.id="w34sBar";anchor.parentNode.insertBefore(b,anchor.nextSibling);
- var pb=mk("button","btn ghost w34s-btn","Print what fits (est.)");pb.type="button";pb.id="w34sPrint";
  var sb=mk("button","btn ghost w34s-btn","Fits first (est.)");sb.type="button";sb.id="w34sSort";sb.setAttribute("aria-pressed","false");
- var st=mk("span","small muted w34s-st");st.id="w34sSt";st.setAttribute("role","status");b.appendChild(sb);b.appendChild(document.createTextNode(" "));b.appendChild(pb);b.appendChild(st);
- var hd=mk("p","pronly small w34s-phd");hd.id="w34sPhd";b.parentNode.insertBefore(hd,b.nextSibling);
- pb.addEventListener("click",printFit);sb.addEventListener("click",sortFit);return b}
+ var st=mk("span","small muted w34s-st");st.id="w34sSt";st.setAttribute("role","status");b.appendChild(sb);b.appendChild(st);
+ sb.addEventListener("click",sortFit);return b}
 function ui(){var b=bar();if(!b)return;var a=get(),rs=rows(),f=rs.filter(function(li){return fit(li,a)==="f"}).length;
- $("w34sPrint").hidden=!(a.length&&f&&window.print);$("w34sSort").hidden=!a.length;b.hidden=!a.length;
+ $("w34sSort").hidden=!a.length;b.hidden=!a.length;
  if(!a.length&&$("w34sSort").getAttribute("aria-pressed")==="true")unsort()}
-function printFit(){var a=get(),n=0,h1=document.querySelector("main h1");rows().forEach(function(li){if(fit(li,a)!=="f")li.setAttribute("data-w34s-ph","1");else n++});
- $("w34sPhd").textContent=(h1?h1.textContent.trim()+": ":"")+n+(n===1?" dish fits":" dishes fit")+" your free-of list ("+names(a)+") by estimate. Printed "+new Date().toLocaleDateString()+" from indiagrillexpress.sites.tab.bot. "+CALL;
- document.body.classList.add("w34s-pf");window.print();setTimeout(pdone,600)}
-function pdone(){document.body.classList.remove("w34s-pf");[].forEach.call(document.querySelectorAll("[data-w34s-ph]"),function(x){x.removeAttribute("data-w34s-ph")})}
-window.addEventListener("afterprint",pdone);
 var ORD=[];
 function sortFit(){var sb=$("w34sSort");if(sb.getAttribute("aria-pressed")==="true"){unsort();return}var a=get(),R={f:0,u:1,n:2},uls=[];ORD=[];
  rows().forEach(function(li,i){ORD.push(li);var ul=li.parentNode;if(uls.indexOf(ul)<0)uls.push(ul)});

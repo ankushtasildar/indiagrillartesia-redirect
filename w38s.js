@@ -17,7 +17,7 @@ function say(o,v,r){o.textContent="";o.appendChild(mk("strong",null,"This view (
  o.appendChild(document.createTextNode(r.k==="u"?"this dish has no confirmed allergen estimate yet, so we can't say. ":r.k==="n"?"by its estimate this dish contains "+names(r.h)+". ":"by its estimate this dish lists none of them. "));
  o.appendChild(document.createTextNode("Your saved list is unchanged. "));o.appendChild(mk("span","small muted",CALL))}
 var DISH=/^\/menu\/d\/[a-z0-9-]+\/?$/.test(P),LIST=/^\/menu\/(s\/[a-z0-9-]+|popular|vegetarian|vegan|gluten-free|high-protein)\/?$/.test(P),MENU=/^\/menu\/?$/.test(P);
-var st=mk("style");st.id="w38sCss";st.textContent=".w38s-none{margin:.5rem 0}.w38s-fit{margin:.5rem 0}.w38s-btn{min-height:44px;max-width:100%;font-size:var(--fs-sm,14px)}@media print{.w38s-none .w38s-btn{display:none!important}}";document.head.appendChild(st);
+var st=mk("style");st.id="w38sCss";st.textContent=".w38s-none{margin:.5rem 0}.w38s-fit{margin:.5rem 0}.w38s-btn{min-height:44px;max-width:100%;font-size:var(--fs-sm,14px)}";document.head.appendChild(st);
 /* W38S-001 */
 function own(){var c=document.querySelector("section.dpn");if(!c)return null;var h=[].filter.call(c.querySelectorAll("h3"),function(x){return /^Allergens/.test(x.textContent)})[0];if(!h)return null;
  var a=[],unk=false;for(var e=h.nextElementSibling;e&&e.tagName!=="H3";e=e.nextElementSibling){if(/Not confirmed for this dish yet/.test(e.textContent))unk=true;[].forEach.call(e.querySelectorAll(".tag.al"),function(s){var k=IN[s.textContent.trim().toLowerCase()];if(k)a.push(k)})}return unk?null:a}

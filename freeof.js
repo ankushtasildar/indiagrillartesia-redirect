@@ -28,8 +28,8 @@ if(fp&&!fp.hidden){var fcs=ticks(fp),fn=mk("p","small muted w30s-mem");fn.setAtt
   fn.appendChild(forget(function(){put([]);fcs.forEach(function(c){c.checked=false});ev(fp);fpaint()}))};
  if(!/[?&]x=/.test(location.search)&&mem.length){fcs.forEach(function(c){c.checked=mem.indexOf(c.value)>=0});ev(fp)}
  fp.addEventListener("change",function(e){if(e.isTrusted)put(on(fcs));fpaint()});fpaint();
- var pb=document.getElementById("foPrint"),out=document.getElementById("foOut");
- if(pb&&out&&navigator.clipboard&&navigator.clipboard.writeText){var cb=mk("button","btn alt w30s-copy","Copy as text"),cs=mk("span","small muted");cb.type="button";cs.setAttribute("role","status");pb.parentNode.insertBefore(cb,pb.nextSibling);pb.parentNode.insertBefore(cs,cb.nextSibling);
+ var pb=document.getElementById("foTools"),out=document.getElementById("foOut");
+ if(pb&&out&&navigator.clipboard&&navigator.clipboard.writeText){var cb=mk("button","btn alt w30s-copy","Copy as text"),cs=mk("span","small muted");cb.type="button";cs.setAttribute("role","status");pb.appendChild(cb);pb.appendChild(cs);pb.hidden=false;
   cb.addEventListener("click",function(){var x=on(fcs);function say(m){cs.textContent="";setTimeout(function(){cs.textContent=" "+m},30)}
    if(!x.length){say("Tick at least one allergen first.");return}
    var ln=["India Grill Express, Artesia: dishes whose estimate lists none of "+names(x)+" (estimated)"];
